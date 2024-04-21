@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Details 📑</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #5D3FD3;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 90%;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Thank You for Sharing Your Meal Details!</h1>
+    <p>Total Grams Consumed: {{ total_grams }}</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Meal</th>
+                <th>Grams Consumed</th>
+                <th>Calories Count</th>
+                <th>Fat (g)</th>
+                <th>Saturated Fat (g)</th>
+                <th>Protein (g)</th>
+                <th>Sodium (mg)</th>
+                <th>Potassium (mg)</th>
+                <th>Cholesterol (mg)</th>
+                <th>Total Carbohydrates (g)</th>
+                <th>Fiber (g)</th>
+                <th>Sugar (g)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for meal in meal_details %}
+            <tr>
+                <td>{{ meal.name }}</td>
+                <td>{{ meal.grams_consumed }}</td>
+                <td>{{ meal.calories }}</td>
+                <td>{{ meal.fat_total_g }}</td>
+                <td>{{ meal.fat_saturated_g }}</td>
+                <td>{{ meal.protein_g }}</td>
+                <td>{{ meal.sodium_mg }}</td>
+                <td>{{ meal.potassium_mg }}</td>
+                <td>{{ meal.cholesterol_mg }}</td>
+                <td>{{ meal.carbohydrates_total_g }}</td>
+                <td>{{ meal.fiber_g }}</td>
+                <td>{{ meal.sugar_g }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
